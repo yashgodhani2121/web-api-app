@@ -4,8 +4,17 @@ const port = 8000;
 
 const app= express();
 const path = require('path');
-const db= require("./config/db")
+// const db= require("./config/db")
 const passport = require("passport");
+
+const mongoose=require('mongoose');
+
+ mongoose.connect("mongodb+srv://ikmedia2121:H2xVJGXGXe2BfnK7@cluster0.uwvaa.mongodb.net/api").then((res) => {
+  console.log("connected to database");
+  }).catch((err) => {
+    console.log(err,"not connected to database");
+    });
+
 
 const jwtstegy = require ("./config/passport-jwt-Strategy");
 const session = require("express-session");
